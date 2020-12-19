@@ -1,0 +1,7 @@
+package com.company;
+
+public class Person {
+    public String nama;
+    public String NIK;
+    public String IDNum;
+}
