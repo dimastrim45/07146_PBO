@@ -1,5 +1,11 @@
 package com.company;
 
+import com.company.guru.Guru;
+import com.company.guru.Jadwal;
+import com.company.karyawan.Karyawan;
+import com.company.murid.murid;
+import com.company.murid.tugas;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,6 +39,8 @@ public class Main {
             System.out.println("3. Hapus Guru");
             System.out.println("4. View Data Guru");
             System.out.println("5. Exit");
+            System.out.println("6. View Murid");
+            System.out.println("7. View Assignment Murid");
             System.out.print("Masukkan Pilihan: ");
             select = input.nextInt();
 
@@ -58,6 +66,11 @@ public class Main {
                     break;
                 case 5:
                     System.exit(0);
+                case 6:
+                    viewMurid();
+                    break;
+                case 7:
+                    Assignment();
                 default:
                     System.out.println("Pilihan Anda Salah!!!");
                     break;
@@ -78,6 +91,7 @@ public class Main {
         dataKaryawan.add(new Karyawan("1", ">= 2.000.000", ">= 1 Tahun"));
         dataKaryawan.add(new Karyawan("2", ">= 3.000.000", ">= 2 Tahun"));
         dataKaryawan.add(new Karyawan("3", ">= 4.000.000", ">= 3 Tahun"));
+
     }
 
     public void viewJadwal(){
@@ -90,6 +104,22 @@ public class Main {
         for (int i=0; i<dataKaryawan.size(); i++){
             System.out.println( dataKaryawan.get(i).indexKaryawan +". " + dataKaryawan.get(i).gaji + ", " + dataKaryawan.get(i).masaKerja);
         }
+    }
+
+    public void viewMurid(){
+        murid siswa1 = new murid("Jojo", "1234", true);
+        murid siswa2 = new murid("Bejo", "2345", true);
+        murid siswa3 = new murid("Setyo", "6359", true);
+        murid siswa4 = new murid("Roger", "2408", true);
+        murid siswa5 = new murid("Dimitri", "4782", true);
+        murid siswa6 = new murid("Saikoji", "1682", true);
+
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
+        System.out.println(siswa1.getNama() + " adalah murid dari " + dataGuru.get(0).nama);
     }
 
 
@@ -193,5 +223,15 @@ public class Main {
                 dataGuru.remove(i);
             }
         }
+    }
+
+    private void Assignment(){
+         tugas tugas1 = new tugas("Jojo", "Matematika 1");
+         tugas1.build();
+
+         murid asistensi = new murid("Jojo", "1234", true);
+         tugas tugas2 = new tugas("Jojo", "IPA 3", asistensi);
+         tugas2.build();
+
     }
 }
